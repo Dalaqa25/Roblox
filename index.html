@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login to Roblox</title>
+    <title>Roblox</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+
+<body class="home-page">
     <div class="container">
         <header class="header">
             <div class="header-left">
@@ -21,50 +23,55 @@
                 </nav>
                 <div class="search-bar">
                     <svg class="search-icon" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                        <path
+                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
                     </svg>
                     <input type="text" placeholder="Search">
                 </div>
             </div>
             <div class="header-right">
-                <button class="signup-btn">Sign Up</button>
+                <a href="login.html" class="login-btn-header">Log In</a>
             </div>
         </header>
 
-        <main class="main-content">
-            <div class="login-box">
-                <h1>Login to Roblox</h1>
-                
-                <form class="login-form">
-                    <div class="input-group">
-                        <input type="text" placeholder="Username/Email/Phone" required>
-                    </div>
-                    
-                    <div class="input-group">
-                        <input type="password" placeholder="Password" required>
-                    </div>
-                    
-                    <button type="submit" class="login-btn">Log In</button>
-                    
-                    <a href="#" class="forgot-link">Forgot Password or Username?</a>
-                </form>
+        <main class="main-content home-content">
+            <div class="profile-container">
+                <!-- 3D button anchored to top-right of container -->
+                <button class="btn-3d">3D</button>
 
-                <div class="divider">
-                    <span>or</span>
+                <!-- Avatar only -->
+                <div class="avatar-wrapper">
+                    <img src="imgs/roblox-minecraft-character-wikia-knight-7a5a826b240eb0376cb0a83b1b8c23f7.png"
+                        alt="Avatar" class="avatar-img">
                 </div>
 
-                <button class="one-time-code-btn">
-                    <span class="icon">✉</span>
-                    Email Me a One-Time Code
-                </button>
+                <!-- Profile info row: identity on left, actions on right -->
+                <div class="profile-info-section">
+                    <div class="profile-identity">
+                        <div class="profile-avatar-circle">
+                            <img src="imgs/roblox-minecraft-character-wikia-knight-7a5a826b240eb0376cb0a83b1b8c23f7.png"
+                                alt="Profile">
+                        </div>
+                        <div class="profile-details">
+                            <h1 class="profile-name">nsda</h1>
+                            <p class="profile-username">@nsda</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-stats">
+                    <span class="stat-item">1 Friend</span>
+                    <span class="stat-item">5 Followers</span>
+                    <span class="stat-item">2 Following</span>
+                </div>
+                <!-- Action buttons now sit below stats -->
+                <div class="profile-actions-bottom">
+                    <button class="btn-add-friend">Add friend</button>
+                    <button class="btn-more">...</button>
+                </div>
 
-                <button class="quick-signin-btn">
-                    <span class="icon">⚡</span>
-                    Quick Sign-in
-                </button>
-
-                <div class="signup-section">
-                    <p>Don't have an account? <a href="#">Sign Up</a></p>
+                <div class="profile-tabs">
+                    <button class="tab-btn active">About</button>
+                    <button class="tab-btn">Creations</button>
                 </div>
             </div>
         </main>
@@ -83,9 +90,12 @@
                 <a href="#">Sitemap</a>
             </div>
             <div class="footer-copyright">
-                <p>©2026 Roblox Corporation. Roblox, the Roblox logo and Powering Imagination are among our registered and unregistered trademarks in the U.S. and other countries.</p>
+                <p>©2026 Roblox Corporation. Roblox, the Roblox logo and Powering Imagination are among our registered
+                    and unregistered trademarks in the U.S. and other countries.</p>
             </div>
         </footer>
     </div>
+    <script src="script.js"></script>
 </body>
+
 </html>

