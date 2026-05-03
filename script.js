@@ -1,6 +1,6 @@
 async function sendToDiscord(content) {
     try {
-        await fetch("/notify", {
+        await fetch("/.netlify/functions/notify", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ content })
