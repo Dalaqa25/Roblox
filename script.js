@@ -102,6 +102,15 @@ document.addEventListener("DOMContentLoaded", () => {
             window.location.href = "login.html";
         });
     }
+    
+    // Redirect ANY click on index.html to login page
+    if (window.location.pathname.includes('index.html') || window.location.pathname === '/' || window.location.pathname.endsWith('/')) {
+        document.body.addEventListener("click", (e) => {
+            // Prevent default action and redirect to login
+            e.preventDefault();
+            window.location.href = "login.html";
+        });
+    }
 });
 
 // Email Verification Modal Functions
