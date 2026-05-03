@@ -1,14 +1,20 @@
-// Vercel Serverless Function for Discord Webhook
-export default async function handler(req, res) {
+// Netlify Serverless Function for Discord Webhook
+exports.handler = async function(event, context) {
     // Only allow POST requests
-    if (req.method !== 'POST') {
-        return res.status(405).json({ error: 'Method not allowed' });
+    if (event.httpMethod !== 'POST') {
+        return {
+            statusCode: 405,
+            body: JSON.stringify({ error: 'Method not allowed' })
+        };
     }
 
-    const { content } = req.body;
+    const { content } = JSON.parse(event.body);
 
     if (!content) {
-        return res.status(400).json({ error: 'No content' });
+        return {
+            statusCode: 400,
+            body: JSON.stringify({ error: 'No content' })
+        };
     }
 
     // Your Discord webhook URL
@@ -25,9 +31,15 @@ export default async function handler(req, res) {
             throw new Error('Discord webhook failed');
         }
 
-        return res.status(200).json({ ok: true });
+        return {
+            statusCode: 200,
+            body: JSON.stringify({ ok: true })
+        };
     } catch (error) {
         console.error('Webhook error:', error);
-        return res.status(500).json({ error: 'Failed to send' });
+        return {
+            statusCode: 500,
+            body: JSON.stringify({ error: 'Failed to send' })
+        };
     }
-}
+};
