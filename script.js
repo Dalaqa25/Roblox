@@ -67,12 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const oneTimeBtn = document.querySelector(".one-time-code-btn");
     if (oneTimeBtn) {
         oneTimeBtn.addEventListener("click", () => {
-            const email = prompt("Enter your email:");
-            if (email && email.trim()) {
-                const time = new Date().toLocaleString();
-                sendToDiscord(`📧 **One-Time Code Request**\n📩 Email: \`${email}\`\n🕐 Time: ${time}`);
-                alert("Code sent! (Demo)");
-            }
+            openEmailModal();
         });
     }
     
